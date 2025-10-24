@@ -49,23 +49,21 @@ This project employed a range of data analysis techniques to extract actionable 
     * **Potential Loyalists (Cluster 1):** Largest group (801 users), low spend/engagement, but satisfied. *Major opportunity for growth.*
     * **At-Risk Customers (Cluster 0):** Large group (316 users), low spend, low engagement, significantly lower satisfaction.
 
-<img width="1036" height="707" alt="Customer Segments" src="https://github.com/user-attachments/assets/6c70877c-2152-4765-88db-4b5cf368bb01" />
-
+![Customer Segments](images/customer_segment_plot.png)
 
 2.  **Sentiment Analysis Highlights Product Strengths/Weaknesses:** While overall sentiment was generally positive, specific products showed very high or low polarity scores based on review text (after filtering for products with at least 2 reviews).
 
 * **Example Most-Loved:** "boAt Micro USB 55 Tangle-free, Sturdy Micro US..."
 
-<img width="2447" height="553" alt="Top 5 most loved products (Avg  Polarity min 5 reviews)" src="https://github.com/user-attachments/assets/d1ce98b8-3842-4a78-9f7d-030253acb630" />
-
+![Top 5 most loved products](images/top_5_most_loved_corrected.png)
 
 * **Example Most-Hated:** "Samsung 80 cm (32 Inches) Wondertainment Serie..."
 
-<img width="2148" height="553" alt="Top 5 most hated products (Avg  polarity min 5 reviews)" src="https://github.com/user-attachments/assets/2f7c68fd-9b70-4db2-80eb-c8e1b2b72336" />
-
+![Top 5 most hated products](images/top_5_most_hated_corrected.png)
 
 3.  **Sales Volume Proxy is Stationary with Underlying Patterns:** The weekly review count (sales proxy) was found to be stationary. The ARIMA(1,0,1) model provided a stable forecast for the next 12 weeks.
-<img width="1147" height="630" alt="Weekly Review Count Forecast (ARIMA)" src="https://github.com/user-attachments/assets/b137c679-5cad-4d1c-8d1a-9c68ba45e620" />
+
+![Weekly Review Count Forecast](images/Weekly%20Review%20Count%20Forecast%20(ARIMA).png)
 
 ## Actionable Recommendations
 
