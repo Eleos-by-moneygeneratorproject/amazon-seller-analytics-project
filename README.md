@@ -49,17 +49,17 @@ This project employed a range of data analysis techniques to extract actionable 
     * **Potential Loyalists (Cluster 1):** Largest group (801 users), low spend/engagement, but satisfied. *Major opportunity for growth.*
     * **At-Risk Customers (Cluster 0):** Large group (316 users), low spend, low engagement, significantly lower satisfaction.
 
-![Customer Segments](images/customer_segment_plot.png)
+![Customer Segments](images/customer_segments.png)
 
 2.  **Sentiment Analysis Highlights Product Strengths/Weaknesses:** While overall sentiment was generally positive, specific products showed very high or low polarity scores based on review text (after filtering for products with at least 2 reviews).
 
 * **Example Most-Loved:** "boAt Micro USB 55 Tangle-free, Sturdy Micro US..."
 
-![Top 5 most loved products](images/top_5_most_loved_corrected.png)
+![Top 5 most loved products](images/Top_5_most_loved_products_(Avg._Polarity_min_5_reviews).png)
 
 * **Example Most-Hated:** "Samsung 80 cm (32 Inches) Wondertainment Serie..."
 
-![Top 5 most hated products](images/top_5_most_hated_corrected.png)
+![Top 5 most hated products](images/Top_5_most_hated_products_(Avg._polarity_min_5_reviews).png)
 
 3.  **Sales Volume Proxy is Stationary with Underlying Patterns:** The weekly review count (sales proxy) was found to be stationary. The ARIMA(1,0,1) model provided a stable forecast for the next 12 weeks.
 
