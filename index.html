@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eleos: Data-Driven Strategy</title>
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Load Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* Custom Colors based on Eleos Palette */
+        :root {
+            --color-off-white: #FAFAFA;
+            --color-sage-neutral: #C8E0C1; /* Soft Sage Green */
+            --color-sky-blue: #A2D2FF;
+            --color-gold: #FFD700;
+            --color-text-dark: #333333; /* Dark text for contrast */
+            --color-sage-text: #5B8A72; /* Darker sage for readability */
+            --color-sky-text: #5A8BAA; /* Darker blue for readability */
+            --color-gold-text: #DAA520; /* Darker gold for better contrast */
+        }
+        
+        /* Apply custom fonts */
+        .font-heading { font-family: 'DM Sans', sans-serif; }
+        .font-body { font-family: 'Lato', sans-serif; }
+
+        /* Full screen slide container (16:9 aspect ratio) */
+        .slide-container {
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: var(--color-off-white);
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* Slide specific styles to ensure content stays within a presentation view */
+        .slide-content {
+            width: 90%;
+            max-width: 1200px;
+            height: 80vh;
+            max-height: 700px;
+            padding: 3rem;
+            border-radius: 1.5rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            background-color: white;
+            position: relative;
+        }
+
+        /* Subtle wave element for Eleos signature shape */
+        .eleos-wave {
+            position: absolute;
+            width: 200px;
+            height: 100px;
+            background-color: var(--color-sage-neutral);
+            border-radius: 0 0 100% 0;
+            opacity: 0.3;
+            bottom: 0;
+            left: 0;
+            z-index: 0;
+        }
+
+        /* Fade-out gradient for conclusion */
+        .fade-gradient {
+            background: linear-gradient(to top, rgba(250, 250, 250, 1) 0%, rgba(250, 250, 250, 0) 100%);
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 25%;
+        }
+
+    </style>
+</head>
+<body class="font-body text-[var(--color-text-dark)] transition-colors duration-500">
+
+    <div id="presentation-root" class="slide-container">
+        
+        <!-- Slide 1: Title Slide -->
+        <div id="slide-1" class="slide-content" data-slide="1">
+            <div class="absolute inset-0 rounded-xl bg-gradient-to-br from-[var(--color-sage-neutral)] via-off-white to-[var(--color-off-white)]">
+                <!-- Abstract Flowing Lines/Waves -->
+                <div class="absolute w-full h-full opacity-30">
+                    <svg viewBox="0 0 100 100" preserveAspectRatio="none" style="filter: blur(50px);">
+                        <path d="M0,50 C25,25 75,75 100,50 L100,100 L0,100 Z" fill="var(--color-sky-blue)"></path>
+                    </svg>
+                </div>
+            </div>
+            
+            <div class="relative z-10 flex flex-col items-center justify-center h-full text-center p-8">
+                <h1 class="font-heading text-6xl font-bold mb-4 text-[var(--color-sage-text)] tracking-tight">
+                    Data-Driven Strategy for Amazon Sellers
+                </h1>
+                <h2 class="font-body text-2xl text-gray-700 max-w-2xl">
+                    Empathy Meets Analytics — Unlocking Profitability Through Understanding 
+                    <span class="text-[var(--color-gold-text)] text-3xl ml-1">🔑</span>
+                </h2>
+                <p class="absolute bottom-6 right-8 text-sm text-[var(--color-sage-text)] opacity-70">By: Eleos</p>
+                <!-- Placeholder for subtle Eleos logo/monogram -->
+                <div class="absolute bottom-6 left-8 text-lg font-heading font-bold text-[var(--color-sage-text)] opacity-50">
+                    E
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 2: The Challenge: A Seller’s Dilemma -->
+        <div id="slide-2" class="slide-content hidden" data-slide="2">
+            <div class="eleos-wave"></div>
+            <h2 class="font-heading text-4xl font-bold mb-12 text-[var(--color-text-dark)] relative z-10">
+                The Amazon Seller’s High-Stakes Balancing Act
+            </h2>
+            <div class="grid grid-cols-2 gap-8 relative z-10">
+                
+                <!-- Challenge Card 1 -->
+                <div class="bg-white p-6 rounded-xl border border-gray-100 shadow-md transition duration-300 hover:shadow-xl">
+                    <div class="flex items-center mb-3">
+                        <span class="text-3xl text-[var(--color-gold-text)] mr-4">💰</span>
+                        <h3 class="font-heading text-xl font-semibold text-[var(--color-text-dark)]">Intense Price Wars & Shrinking Margins</h3>
+                    </div>
+                    <p class="text-gray-600 font-body">The constant pressure to compete on cost often sacrifices long-term business health for short-term sales—a stressful reality.</p>
+                </div>
+
+                <!-- Challenge Card 2 -->
+                <div class="bg-white p-6 rounded-xl border border-gray-100 shadow-md transition duration-300 hover:shadow-xl">
+                    <div class="flex items-center mb-3">
+                        <span class="text-3xl text-[var(--color-sky-text)] mr-4">📦</span>
+                        <h3 class="font-heading text-xl font-semibold text-[var(--color-text-dark)]">Inventory Risks: Overstock vs. Stockouts</h3>
+                    </div>
+                    <p class="text-gray-600 font-body">Predicting inventory is a gamble. Overstocking drains capital; stockouts disappoint loyal customers.</p>
+                </div>
+
+                <!-- Challenge Card 3 -->
+                <div class="bg-white p-6 rounded-xl border border-gray-100 shadow-md transition duration-300 hover:shadow-xl">
+                    <div class="flex items-center mb-3">
+                        <span class="text-3xl text-[var(--color-gold-text)] mr-4">👀</span>
+                        <h3 class="font-heading text-xl font-semibold text-[var(--color-text-dark)]">Standing Out in a Crowded Marketplace</h3>
+                    </div>
+                    <p class="text-gray-600 font-body">Getting seen amidst millions of products demands more than keywords—it requires genuine connection.</p>
+                </div>
+
+                <!-- Challenge Card 4 -->
+                <div class="bg-white p-6 rounded-xl border border-gray-100 shadow-md transition duration-300 hover:shadow-xl">
+                    <div class="flex items-center mb-3">
+                        <span class="text-3xl text-[var(--color-sky-text)] mr-4">⭐</span>
+                        <h3 class="font-heading text-xl font-semibold text-[var(--color-text-dark)]">Managing Customer Feedback & Reputation</h3>
+                    </div>
+                    <p class="text-gray-600 font-body">Every review carries weight. Proactive, caring management is essential for building lasting trust.</p>
+                </div>
+
+            </div>
+            <p class="mt-8 text-center text-gray-500 italic">Frame these as human challenges, not just business problems.</p>
+        </div>
+
+        <!-- Slide 3: Our Approach: From Data to Decisions -->
+        <div id="slide-3" class="slide-content hidden" data-slide="3">
+            <h2 class="font-heading text-4xl font-bold mb-12 text-center text-[var(--color-text-dark)]">
+                The Eleos Approach: Turning Data into Compassionate Decisions
+            </h2>
+            
+            <!-- Flow Diagram -->
+            <div class="flex items-center justify-between space-x-4 h-1/2">
+                
+                <!-- Step 1: Data -->
+                <div class="flex flex-col items-center flex-1 p-6 rounded-2xl bg-[var(--color-sky-blue)]/30 shadow-lg transition duration-300 hover:shadow-xl">
+                    <div class="text-5xl mb-4 text-[var(--color-sky-text)]">📈</div>
+                    <h3 class="font-heading text-xl font-semibold mb-2 text-[var(--color-sky-text)]">Raw Amazon Data</h3>
+                    <p class="text-center text-sm text-gray-800">Sales, Inventory, Traffic, Reviews</p>
+                </div>
+
+                <!-- Arrow -->
+                <div class="text-4xl text-[var(--color-sage-text)]">→</div>
+
+                <!-- Step 2: Models -->
+                <div class="flex flex-col items-center flex-1 p-6 rounded-2xl bg-[var(--color-sage-neutral)]/30 shadow-lg transition duration-300 hover:shadow-xl">
+                    <div class="text-5xl mb-4 text-[var(--color-sage-text)]">🧠</div>
+                    <h3 class="font-heading text-xl font-semibold mb-2 text-[var(--color-sage-text)]">Analytics Models</h3>
+                    <p class="text-center text-sm text-gray-800">Clustering, Sentiment, Forecasting</p>
+                </div>
+
+                <!-- Arrow -->
+                <div class="text-4xl text-[var(--color-sage-text)]">→</div>
+
+                <!-- Step 3: Insights -->
+                <div class="flex flex-col items-center flex-1 p-6 rounded-2xl bg-[var(--color-gold)]/30 shadow-lg transition duration-300 hover:shadow-xl">
+                    <div class="text-5xl mb-4 text-[var(--color-gold-text)]">✨</div>
+                    <h3 class="font-heading text-xl font-semibold mb-2 text-[var(--color-gold-text)]">Actionable Insights</h3>
+                    <p class="text-center text-sm text-gray-800">Empathy-Driven Strategy</p>
+                </div>
+            </div>
+
+            <!-- Empathy Quote -->
+            <div class="mt-12 p-6 rounded-xl bg-[var(--color-sage-neutral)]/20 border-l-4 border-[var(--color-sage-text)] max-w-3xl mx-auto shadow-inner">
+                <p class="font-body text-lg italic text-[var(--color-text-dark)] leading-relaxed">
+                    “We blend analytics with empathy — interpreting data not just for efficiency, but for human connection, loyalty, and trust.”
+                </p>
+            </div>
+            
+            <!-- Soft Wave Divider -->
+            <div class="absolute bottom-0 left-0 right-0 h-10 bg-gradient-to-r from-[var(--color-sky-blue)]/50 to-white opacity-40"></div>
+        </div>
+
+        <!-- Slide 4: Key Insight 1: Meet Your Customers -->
+        <div id="slide-4" class="slide-content hidden" data-slide="4">
+            <h2 class="font-heading text-4xl font-bold mb-10 text-[var(--color-text-dark)]">
+                Finding #1: Know Your People — Customer Segments
+            </h2>
+            
+            <div class="flex">
+                <!-- Chart Placeholder -->
+                <div class="w-1/3 p-4 bg-gray-50 rounded-xl shadow-inner flex items-center justify-center mr-8">
+                    <div class="text-center">
+                        <h3 class="font-heading text-xl mb-3 text-gray-700">Customer Cluster Breakdown</h3>
+                        <!-- Mock Donut Chart Placeholder -->
+                        <div class="w-40 h-40 rounded-full mx-auto" style="background: conic-gradient(var(--color-sage-text) 0 30%, var(--color-sky-text) 30% 65%, var(--color-gold-text) 65% 75%, #F08080 75% 100%);"></div>
+                        <p class="text-sm mt-3 text-gray-500">Visual Representation (Canva Chart Tool)</p>
+                    </div>
+                </div>
+
+                <!-- Personas -->
+                <div class="w-2/3 space-y-4">
+                    <h3 class="font-heading text-2xl font-semibold mb-4 text-[var(--color-sage-text)]">Key Personas</h3>
+
+                    <div class="flex p-3 rounded-lg bg-[var(--color-sage-neutral)]/50">
+                        <span class="text-2xl mr-3">🌱</span>
+                        <p class="font-body"><strong class="font-semibold">Potential Loyalists</strong> — They believe in you, but need nurturing.</p>
+                    </div>
+
+                    <div class="flex p-3 rounded-lg bg-[#F08080]/20 border-l-4 border-[#F08080]">
+                        <span class="text-2xl mr-3">⚠️</span>
+                        <p class="font-body"><strong class="font-semibold">At-Risk</strong> — Frustrated customers seeking reassurance.</p>
+                    </div>
+
+                    <div class="flex p-3 rounded-lg bg-[var(--color-sky-blue)]/50">
+                        <span class="text-2xl mr-3">💙</span>
+                        <p class="font-body"><strong class="font-semibold">Engaged Loyalists</strong> — Active supporters who deserve appreciation.</p>
+                    </div>
+
+                    <div class="flex p-3 rounded-lg bg-[var(--color-gold)]/50">
+                        <span class="text-2xl mr-3">👑</span>
+                        <p class="font-body"><strong class="font-semibold">Champions</strong> — Rare gems; celebrate them openly.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 5: Key Insight 2: The Voice of the Customer (Sentiment) -->
+        <div id="slide-5" class="slide-content hidden" data-slide="5">
+            <h2 class="font-heading text-4xl font-bold mb-8 text-[var(--color-text-dark)]">
+                Finding #2: Listening to the Voice of the Customer
+            </h2>
+            
+            <div class="flex h-3/4">
+                <!-- Sentiment Quote -->
+                <div class="w-1/2 flex items-center justify-center p-6 border-r border-gray-100">
+                    <div class="relative max-w-sm">
+                        <div class="text-8xl absolute -top-8 -left-8 text-[var(--color-gold-text)] opacity-40">“</div>
+                        <p class="font-heading text-2xl italic text-[var(--color-gold-text)] leading-relaxed relative z-10">
+                            “Behind every negative review is a voice asking to be understood.”
+                        </p>
+                        <div class="text-8xl absolute -bottom-8 -right-8 text-[var(--color-gold-text)] opacity-40">”</div>
+                        <!-- Minimalist Quote Bubble Icon (SVG placeholder) -->
+                        <div class="absolute -top-10 -right-10 w-24 h-24 text-[var(--color-sky-text)] opacity-30">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Mock Chart & Word Cloud -->
+                <div class="w-1/2 p-6 flex flex-col justify-between">
+                    <h3 class="font-heading text-xl font-semibold mb-4 text-[var(--color-text-dark)]">Top 5 Most Hated Products (Mock Data)</h3>
+                    <ul class="space-y-2 font-body text-gray-700">
+                        <li class="p-2 rounded-lg bg-[var(--color-sage-neutral)]/30">1. Product Alpha (High Return Rate)</li>
+                        <li class="p-2 rounded-lg bg-[var(--color-sage-neutral)]/30">2. Product Beta (Durability Issues)</li>
+                        <li class="p-2 rounded-lg bg-[var(--color-sage-neutral)]/30">3. Product Gamma (Size Discrepancy)</li>
+                        <li class="p-2 rounded-lg bg-[var(--color-sage-neutral)]/30">4. Product Delta (Shipping Delays)</li>
+                        <li class="p-2 rounded-lg bg-[var(--color-sage-neutral)]/30">5. Product Epsilon (Poor Instructions)</li>
+                    </ul>
+                    <!-- Word Cloud Placeholder -->
+                    <div class="text-center mt-4 text-gray-400 italic">
+                        <span class="text-xl">Broken</span>, <span class="text-sm">Late</span>, <span class="text-2xl">Small</span>, <span class="text-lg">Missing</span>, <span class="text-xs">Confusing</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 6: Key Insight 3: Looking Ahead (Forecast) -->
+        <div id="slide-6" class="slide-content hidden" data-slide="6">
+            <h2 class="font-heading text-4xl font-bold mb-12 text-[var(--color-text-dark)]">
+                Finding #3: Forecasting with Heart — Anticipating Needs Before They Arise
+            </h2>
+            
+            <div class="flex">
+                <!-- Summary Text -->
+                <div class="w-1/3 pr-8">
+                    <p class="font-body text-xl leading-relaxed mt-4 p-4 rounded-xl bg-[var(--color-sky-blue)]/20 border-l-4 border-[var(--color-sky-text)]">
+                        “Our model predicts stable demand — a reminder that steady care and proactive planning sustain long-term trust.”
+                    </p>
+                    <div class="flex justify-around mt-8">
+                        <span class="text-5xl text-[var(--color-sage-text)] opacity-60">▲</span>
+                        <span class="text-5xl text-[var(--color-sage-text)] opacity-80">▲</span>
+                        <span class="text-5xl text-[var(--color-sage-text)] opacity-100">▲</span>
+                    </div>
+                </div>
+
+                <!-- Forecast Placeholder -->
+                <div class="w-2/3 p-6 bg-gray-50 rounded-xl shadow-lg border border-gray-100">
+                    <h3 class="font-heading text-xl mb-4 text-gray-700">Demand Forecast (Stable Growth)</h3>
+                    <!-- Mock Graph -->
+                    <div class="h-48 relative">
+                        <svg viewBox="0 0 100 50" preserveAspectRatio="none" class="w-full h-full">
+                            <!-- X-Axis (Time) -->
+                            <line x1="0" y1="48" x2="100" y2="48" stroke="#ccc" stroke-width="0.5"/>
+                            <!-- Gentle Upward Trend Line (Sky Blue/Gold) -->
+                            <polyline points="0,40 20,38 40,35 60,32 80,30 100,28" fill="none" stroke="var(--color-sky-text)" stroke-width="2.5" stroke-linecap="round"/>
+                        </svg>
+                        <p class="absolute bottom-2 left-1/2 transform -translate-x-1/2 text-sm text-gray-500">Q1 2024 → Q4 2024</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 7: Strategic Recommendations -->
+        <div id="slide-7" class="slide-content hidden" data-slide="7">
+            <h2 class="font-heading text-4xl font-bold mb-12 text-[var(--color-text-dark)]">
+                From Insight to Impact
+            </h2>
+            
+            <div class="grid grid-cols-3 gap-6 text-center">
+                
+                <!-- Recommendation 1 -->
+                <div class="p-8 rounded-2xl bg-white border border-[var(--color-sky-blue)]/50 shadow-lg transition duration-300 hover:shadow-xl">
+                    <div class="text-5xl mb-4 text-[var(--color-gold-text)]">🎯</div>
+                    <h3 class="font-heading text-2xl font-bold mb-3 text-[var(--color-sky-text)]">Target with Care</h3>
+                    <p class="font-body text-gray-700">Tailor outreach and communication to meet the specific needs of each customer segment.</p>
+                </div>
+
+                <!-- Recommendation 2 -->
+                <div class="p-8 rounded-2xl bg-white border border-[var(--color-sage-neutral)]/50 shadow-lg transition duration-300 hover:shadow-xl">
+                    <div class="text-5xl mb-4 text-[var(--color-sky-text)]">💬</div>
+                    <h3 class="font-heading text-2xl font-bold mb-3 text-[var(--color-sage-text)]">Listen Deeply</h3>
+                    <p class="font-body text-gray-700">Act decisively on feedback; proactively turn customer frustration into lasting loyalty.</p>
+                </div>
+
+                <!-- Recommendation 3 -->
+                <div class="p-8 rounded-2xl bg-white border border-[var(--color-gold)]/50 shadow-lg transition duration-300 hover:shadow-xl">
+                    <div class="text-5xl mb-4 text-[var(--color-sage-text)]">📦</div>
+                    <h3 class="font-heading text-2xl font-bold mb-3 text-[var(--color-gold-text)]">Plan Thoughtfully</h3>
+                    <p class="font-body text-gray-700">Let empathy—understanding future customer demand—guide your inventory decisions.</p>
+                </div>
+            </div>
+
+            <p class="text-center mt-12 text-lg italic text-[var(--color-sage-text)] font-semibold">
+                — Empathy in Every Equation.
+            </p>
+        </div>
+
+        <!-- Slide 8: Conclusion & Contact -->
+        <div id="slide-8" class="slide-content hidden" data-slide="8">
+            <h2 class="font-heading text-5xl font-bold mb-10 text-center text-[var(--color-text-dark)]">
+                Conclusion: Growth Through Understanding
+            </h2>
+
+            <div class="relative z-10 text-center max-w-2xl mx-auto">
+                <p class="font-body text-xl leading-relaxed mb-12 text-gray-700">
+                    At Eleos, we believe data should serve people. When analytics meet empathy, strategy becomes sustainable.
+                </p>
+
+                <div class="space-y-3 font-heading text-lg">
+                    <p class="flex items-center justify-center text-[var(--color-sage-text)] font-bold">
+                        <span class="mr-3 text-2xl">👤</span> Eleos — Empathy-Driven Intelligence
+                    </p>
+                    <p class="flex items-center justify-center text-[var(--color-sky-text)]">
+                        <span class="mr-3 text-2xl">🌐</span> github.com/Eleos-by-moneygeneratorproject/amazon-seller-analytics-project
+                    </p>
+                    <p class="flex items-center justify-center text-[var(--color-gold-text)]">
+                        <span class="mr-3 text-2xl">📧</span> kingdominic.eleos@gmail.com
+                    </p>
+                </div>
+            </div>
+            
+            <!-- Elegant Fade-out Gradient -->
+            <div class="fade-gradient"></div>
+
+            <!-- Heart-shaped data icon motif -->
+            <div class="absolute bottom-10 right-10 text-5xl text-[var(--color-gold-text)] opacity-40">
+                <svg viewBox="0 0 24 24" fill="currentColor" stroke="none" class="w-12 h-12">
+                    <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35zM15 9h-2V7h-2v2H9v2h2v2h2v-2h2V9z"/>
+                </svg>
+            </div>
+        </div>
+        
+    </div>
+
+    <!-- Navigation Controls -->
+    <div class="fixed bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-4 z-20">
+        <button onclick="changeSlide(-1)" id="prev-btn" class="px-6 py-2 rounded-full bg-[var(--color-sage-text)] text-white font-semibold shadow-xl hover:bg-[var(--color-sage-text)]/90 transition-all disabled:opacity-50 disabled:cursor-not-allowed">
+            &larr; Previous
+        </button>
+        <div id="slide-indicator" class="px-4 py-2 rounded-full bg-gray-200 text-gray-700 font-medium">1 / 8</div>
+        <button onclick="changeSlide(1)" id="next-btn" class="px-6 py-2 rounded-full bg-[var(--color-sage-text)] text-white font-semibold shadow-xl hover:bg-[var(--color-sage-text)]/90 transition-all">
+            Next &rarr;
+        </button>
+    </div>
+
+    <script>
+        let currentSlide = 1;
+        const totalSlides = 8;
+        const slides = document.querySelectorAll('.slide-content');
+        const indicator = document.getElementById('slide-indicator');
+        const prevBtn = document.getElementById('prev-btn');
+        const nextBtn = document.getElementById('next-btn');
+
+        function updateSlideDisplay() {
+            slides.forEach(slide => {
+                const slideIndex = parseInt(slide.getAttribute('data-slide'));
+                slide.classList.toggle('hidden', slideIndex !== currentSlide);
+            });
+            indicator.textContent = `${currentSlide} / ${totalSlides}`;
+            prevBtn.disabled = currentSlide === 1;
+            nextBtn.disabled = currentSlide === totalSlides;
+        }
+
+        function changeSlide(direction) {
+            const newSlide = currentSlide + direction;
+            if (newSlide >= 1 && newSlide <= totalSlides) {
+                currentSlide = newSlide;
+                updateSlideDisplay();
+            }
+        }
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight') {
+                changeSlide(1);
+            } else if (e.key === 'ArrowLeft') {
+                changeSlide(-1);
+            }
+        });
+
+        // Initialize presentation
+        window.onload = updateSlideDisplay;
+    </script>
+</body>
+</html>
