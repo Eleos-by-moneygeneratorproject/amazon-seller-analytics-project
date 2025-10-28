@@ -1,5 +1,10 @@
 # Data-Driven Strategy for Amazon Sellers: A Comprehensive Analytics Project
 
+---
+## Final Project Deliverable
+**Interactive Presentation:** [View the Final Presentation Here](https://eleosproject.netlify.app/)
+---
+
 ## Business Problem
 
 Amazon sellers operate in a complex, competitive marketplace facing significant pressures. Intense price wars, high Amazon fees, and advertising costs squeeze profit margins. Managing inventory effectively is critical, with costly FBA storage fees for overstocking and lost sales plus ranking penalties for stockouts. Gaining visibility requires optimizing listings for the A9 search algorithm and winning the coveted Buy Box, heavily influenced by pricing, performance metrics, and customer reviews. Maintaining a positive reputation through review management is crucial but challenging. This project applies data analytics to address these interconnected challenges, aiming to shift from reactive problem-solving to proactive, data-informed strategies for sustainable profitability.
@@ -49,20 +54,20 @@ This project employed a range of data analysis techniques to extract actionable 
     * **Potential Loyalists (Cluster 1):** Largest group (801 users), low spend/engagement, but satisfied. *Major opportunity for growth.*
     * **At-Risk Customers (Cluster 0):** Large group (316 users), low spend, low engagement, significantly lower satisfaction.
 
-    ![Customer Segments](images/Customer%20Segments.png)
+    ![Customer Segments](images/analysis_plots/Customer%20Segments.png)
 
 2.  **Sentiment Analysis Highlights Product Strengths/Weaknesses:** While overall sentiment was generally positive, specific products showed very high or low polarity scores based on review text (after filtering for products with at least 2 reviews).
     * **Example Most-Loved:** "boAt Micro USB 55 Tangle-free, Sturdy Micro US..."
 
-    ![Top 5 most loved products](images/Top%205%20most%20loved%20products%20(Avg.%20Polarity%20min%205%20reviews).png)
+    ![Top 5 most loved products](images/analysis_plots/Top%205%20most%20loved%20products%20(Avg.%20Polarity%20min%205%20reviews).png)
 
     * **Example Most-Hated:** "Samsung 80 cm (32 Inches) Wondertainment Serie..."
 
-    ![Top 5 most hated products](images/Top%205%20most%20hated%20products%20(Avg.%20polarity%20min%205%20reviews).png)
+    ![Top 5 most hated products](images/analysis_plots/Top%205%20most%20hated%20products%20(Avg.%20polarity%20min%205%20reviews).png)
 
 3.  **Sales Volume Proxy is Stationary, Leading to Stable Forecast:** The weekly review count (sales proxy, based on artificial dates) was found to be stationary via the ADF test. Consequently, the simple ARIMA(1,0,1) model provided a stable forecast primarily reflecting the historical average (approx. 7 reviews/week). **This demonstrates the forecasting *process*, but the flat forecast highlights the limitation of using non-temporal proxy data and a basic model on stationary series; real sales data would likely show trends/seasonality requiring different modeling.**
 
-    ![Weekly Review Count Forecast](images/Weekly%20Review%20Count%20Forecast%20(ARIMA).png)
+    ![Weekly Review Count Forecast](images/analysis_plots/Weekly%20Review%20Count%20Forecast%20(ARIMA).png)
 
 ## Actionable Recommendations
 
@@ -93,6 +98,10 @@ This project employed a range of data analysis techniques to extract actionable 
     * The final output includes saving plots as PNG files.
 
 ---
-## Final Project Deliverable
-**Interactive Presentation:** [View the Final Presentation Here](https://eleosproject.netlify.app/)
+## Supplementary Assets: Marketing and Design Showcase
+
+**Product Media Design:** To address opportunities in conversion rates (a KPI), sample A+ Content images and product graphics are available in the repository. This demonstrates the ability to translate analytical findings (e.g., product strengths identified via Sentiment Analysis) directly into high-impact marketing materials.
+
+* **Agency Branding Assets:** View logos in the `/images/marketing_assets/Logo/` directory.
+* **Example Logo:** ![Cream Black Logo Square](images/marketing_assets/Logo/Logo%20With%20Background/Cream%20Black%20Logo%20Square.jpg)
 ---
