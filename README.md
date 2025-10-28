@@ -15,7 +15,7 @@ Amazon sellers operate in a complex, competitive marketplace facing significant 
 
 The primary dataset used is the "[Amazon Sales Dataset](https://www.kaggle.com/datasets/karkavelrajaj/amazon-sales-dataset)" from Kaggle, provided by user Karkavelrajaj. It contains over 1,400 records with product details, pricing, customer feedback (ratings and text reviews), and user information.
 
-* **File:** `amazon.csv`
+* **File:** `amazon.csv` (Located in the `/data/` folder)
 
 ## Methodology & Tech Stack
 
@@ -26,7 +26,7 @@ This project employed a range of data analysis techniques to extract actionable 
 * **Customer Segmentation:** Applied **K-Means clustering** (using **scikit-learn**) on user-level aggregated data (total spend, review count, average rating) after standardizing features with `StandardScaler` to identify distinct customer groups. The Elbow Method was used to determine the optimal number of clusters (k=4).
 * **Market Basket Analysis:** Attempted Association Rule Mining using the **Apriori algorithm** (**mlxtend**). The analysis was inconclusive due to the sparsity of the data (users typically reviewed only one item per "basket").
 * **Sentiment Analysis:** Utilized a lexicon-based approach (**TextBlob**) to calculate polarity and subjectivity scores for customer reviews (`review_content`). Aggregated sentiment by product to identify most-loved/hated items.
-* **Time Series Forecasting:** Modeled weekly review counts (as a proxy for sales velocity) using an **ARIMA(1, 0, 1)** model (**statsmodels**) after confirming stationarity with the ADF test. Generated a 12-week forecast.
+* **Time Series Forecasting:** Modeled weekly review counts (as a proxy for sales velocity) using an **ARIMA(1, 0, 1)** model (**statsmodels**) after confirming stationarity with the ADF test. Generated a 12-week forecast. **Note: Utilized an artificial time index due to lack of explicit timestamps in the source data, limiting the model's ability to capture real-world temporal patterns.**
 
 **Core Technologies:**
 * Python 3
@@ -49,21 +49,20 @@ This project employed a range of data analysis techniques to extract actionable 
     * **Potential Loyalists (Cluster 1):** Largest group (801 users), low spend/engagement, but satisfied. *Major opportunity for growth.*
     * **At-Risk Customers (Cluster 0):** Large group (316 users), low spend, low engagement, significantly lower satisfaction.
 
-![Customer Segments](images/Customer%20Segments.png)
+    ![Customer Segments](images/Customer%20Segments.png)
 
 2.  **Sentiment Analysis Highlights Product Strengths/Weaknesses:** While overall sentiment was generally positive, specific products showed very high or low polarity scores based on review text (after filtering for products with at least 2 reviews).
+    * **Example Most-Loved:** "boAt Micro USB 55 Tangle-free, Sturdy Micro US..."
 
-* **Example Most-Loved:** "boAt Micro USB 55 Tangle-free, Sturdy Micro US..."
+    ![Top 5 most loved products](images/Top%205%20most%20loved%20products%20(Avg.%20Polarity%20min%205%20reviews).png)
 
-![Top 5 most loved products](images/Top%205%20most%20loved%20products%20(Avg.%20Polarity%20min%205%20reviews).png)
+    * **Example Most-Hated:** "Samsung 80 cm (32 Inches) Wondertainment Serie..."
 
-* **Example Most-Hated:** "Samsung 80 cm (32 Inches) Wondertainment Serie..."
+    ![Top 5 most hated products](images/Top%205%20most%20hated%20products%20(Avg.%20polarity%20min%205%20reviews).png)
 
-![Top 5 most hated products](images/Top%205%20most%20hated%20products%20(Avg.%20polarity%20min%205%20reviews).png)
+3.  **Sales Volume Proxy is Stationary, Leading to Stable Forecast:** The weekly review count (sales proxy, based on artificial dates) was found to be stationary via the ADF test. Consequently, the simple ARIMA(1,0,1) model provided a stable forecast primarily reflecting the historical average (approx. 7 reviews/week). **This demonstrates the forecasting *process*, but the flat forecast highlights the limitation of using non-temporal proxy data and a basic model on stationary series; real sales data would likely show trends/seasonality requiring different modeling.**
 
-3.  **Sales Volume Proxy is Stationary with Underlying Patterns:** The weekly review count (sales proxy) was found to be stationary. The ARIMA(1,0,1) model provided a stable forecast for the next 12 weeks.
-
-![Weekly Review Count Forecast](images/Weekly%20Review%20Count%20Forecast%20(ARIMA).png)
+    ![Weekly Review Count Forecast](images/Weekly%20Review%20Count%20Forecast%20(ARIMA).png)
 
 ## Actionable Recommendations
 
@@ -71,12 +70,12 @@ This project employed a range of data analysis techniques to extract actionable 
     * **Champions:** Launch a VIP program with exclusive perks & early access. Encourage testimonials.
     * **Engaged Loyalists:** Nurture with personalized content, new product alerts, and requests for reviews on new purchases.
     * **Potential Loyalists:** Use welcome email series, first/second purchase discounts, and product education to increase purchase frequency and engagement.
-    * **At-Risk:** Conduct targeted surveys to understand dissatisfaction drivers (linking se  ntiment analysis). Offer proactive customer service and win-back promotions.
+    * **At-Risk:** Conduct targeted surveys to understand dissatisfaction drivers (linking sentiment analysis). Offer proactive customer service and win-back promotions.
 2.  **Prioritize Product Quality/Marketing based on Sentiment:**
     * Investigate products identified in the "Most-Hated" list for potential quality control issues or misleading descriptions.
     * Leverage positive sentiment from "Most-Loved" products in marketing copy and ad campaigns.
     * Analyze products with high sentiment but low sales ("Hidden Gems" quadrant from sentiment vs. sales plot) for potential marketing/visibility improvements.
-3.  **Inform Inventory Planning with Forecast:** Use the ARIMA forecast's predicted weekly review volume (**approx. 7 per week**, based on your `forecast_df`) as a directional input for inventory planning over the next quarter, adjusting based on actual sales data and seasonality knowledge.
+3.  **Inform Inventory Planning with Forecast (Directionally):** Use the ARIMA forecast's predicted weekly review volume (**approx. 7 per week**, based on `forecast_df`) as a **directional input only** for inventory planning. **Given the limitations (proxy data, flat forecast), this number should be heavily supplemented with actual sales data, seasonality knowledge, and business judgment rather than being used as a precise prediction.**
 
 ## How to Run This Project
 
