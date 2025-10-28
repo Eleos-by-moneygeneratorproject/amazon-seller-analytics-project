@@ -91,3 +91,8 @@ This project employed a range of data analysis techniques to extract actionable 
     * The code includes steps to authenticate with Google to write data to Google Sheets. You will need to follow the authentication prompts.
     * The Market Basket Analysis section will report that no significant rules were found.
     * The final output includes saving plots as PNG files.
+
+---
+## Final Project Deliverable
+**Interactive Presentation:** [View the Final Presentation Here](https://eleosproject.netlify.app/)
+---
