@@ -2,7 +2,7 @@
 
 ---
 ## Final Project Deliverable
-**Interactive Presentation:** [View the Final Presentation Here](https://eleosproject.netlify.app/)
+**Full Presentation (PDF):** [View the Presentation in the /presentation folder](presentation/Amazon_Seller_Strategy_Presentation.pdf) 
 ---
 
 ## Business Problem
